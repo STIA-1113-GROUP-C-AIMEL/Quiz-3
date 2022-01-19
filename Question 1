@@ -1,0 +1,161 @@
+package quiz2Labtesr2;
+
+import java.util.Scanner;
+
+public class Question1 {
+
+	    static Scanner scan = new Scanner(System. in );
+	    
+	    public static void main(String[] args) 
+	    {
+	        int size, choose;
+
+	        System.out.print("Enter the size of the array: ");
+	        size = scan.nextInt();
+	        int[] array = new int[size];
+	        
+	        
+	        do 
+	        {
+	            System.out.println("Menu ");
+	            System.out.println("1. Read");
+	            System.out.println("2. Display");
+	            System.out.println("3. Search");
+	            System.out.println("4. Sort");
+	            System.out.println("5. Exit");
+	            System.out.print("Select choose : ");
+	            choose = scan.nextInt();
+	        
+	            switch (choose) 
+	            {
+	                case 1:
+	                    readArray(array);
+	                    break;
+	                case 2:
+	                    displayArray(array);
+	                    break;
+	                case 3:
+	                    System.out.print("Enter the number you want to search: ");
+	                    int item = scan.nextInt();
+	                    int index = searchArray(array, item);
+	                    if (index == -1) 
+	                    {
+	                        System.out.println("Item not found");
+	                    }
+	                    else 
+	                    {
+	                        System.out.println("Item found at position " + (index + 1));
+	                    }
+	                    break;
+	                case 4:
+	                    System.out.println("Sorted array :");
+	                    sortArray(array);
+	                    displayArray(array);
+	                    break;
+	            }
+	        } while (choose != 5);
+	    }
+	    
+	    static void readArray(int[] array) 
+	    {
+	        System.out.println("Enter array :");
+	        for (int i = 0; i < array.length; i++)
+	        {
+	           array[i] = scan.nextInt();
+	        }
+	    }
+
+	    static void displayArray(int[] array) 
+	    {
+	        System.out.println("Array :");
+	        for (int i = 0; i < array.length; i++)
+	        {
+	            System.out.print(array[i] + " ");
+	        }
+	        System.out.println();
+	    }
+
+	    static int searchArray(int[] array, int data) 
+	    {
+	        System.out.println("Search :");
+	        for (int i = 0; i < array.length; i++)
+	        {
+	            if(array[i] == data)
+	            {
+	                return i;
+	            }
+	        }        
+	        return -1;
+	    }
+	    
+	    static void sortArray(int[] array) 
+	    {
+	        
+	        for (int i = 0; i < array.length - 1; i++)
+	        {
+	            for(int j = 0; j < array.length -i-1; j++)
+	            {
+	                if(array[j] > array[j+1])
+	                {
+	                    int temp = array[j];
+	                    array[j] = array[j+1];
+	                    array[j+1] = temp;
+	                }
+	            }
+	        }          
+	    }
+	}
+
+	
+Output
+
+Enter the size of the array: 5
+Menu 
+1. Read
+2. Display
+3. Search
+4. Sort
+5. Exit
+Select choose : 1
+Enter array :
+10
+20
+30
+40
+50
+Menu 
+1. Read
+2. Display
+3. Search
+4. Sort
+5. Exit
+Select choose : 2
+Array :
+10 20 30 40 50 
+Menu 
+1. Read
+2. Display
+3. Search
+4. Sort
+5. Exit
+Select choose : 3
+Enter the number you want to search: 40
+Search :
+Item found at position 4
+Menu 
+1. Read
+2. Display
+3. Search
+4. Sort
+5. Exit
+Select choose : 4
+Sorted array :
+Array :
+10 20 30 40 50 
+Menu 
+1. Read
+2. Display
+3. Search
+4. Sort
+5. Exit
+Select choose : 5
